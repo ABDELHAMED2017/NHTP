@@ -264,15 +264,3 @@ end
 function Fnorm = FNorm(x)
 Fnorm = sum(x.*x);
 end
-
-
-function  maxeta = GetInitEta(funcs,x0)
-[~,g1]  = funcs(x0,'ObjGrad',[],[]);
- abg1   = abs(g1);
-T       = find(abg1>1e-8);
-if isempty(T)
-maxeta  = 0;
-else
-maxeta  = sum(abs(x0(T))./(abg1(T)+eps))/nnz(T);
-end
-end
