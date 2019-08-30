@@ -64,12 +64,13 @@ if nargin>=3
     if isfield(pars,'IterOn');iterOn = pars.IterOn; else; iterOn = 1;     end
     if isfield(pars,'Draw');  Draw   = pars.Draw;   else; Draw   = 1;     end
     if isfield(pars,'MaxIt'); ItMax  = pars.MaxIt;  else; ItMax  = 2000;  end
+    if isfield(pars,'tol');   tol    = pars.tol;    else; tol    = 1e-6;  end  
     if isfield(pars,'x0');    x0     = pars.x0;     else; x0 = zeros(n,1);end 
     
     [obj,g]  = funcs(x0,'ObjGrad',[],[]); 
     if isfield(pars,'eta')      
         eta  = pars.eta;       
-    else
+    else % set a proper parameter eta
         [~,g1] = funcs(ones(n,1),'ObjGrad',[],[]) ;
         abg1   = abs(g1);
         T      = find(abg1>1e-8);
@@ -90,7 +91,6 @@ end
                  
 x       = x0;
 beta    = 0.5;
-tol     = 1e-6; 
 sigma   = 5e-5;
 I       = 1:n;
 delta   = 1e-10;
