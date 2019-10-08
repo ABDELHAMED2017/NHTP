@@ -1,7 +1,7 @@
 # NHTP
 NHPT: Newton Hard-Thresholding Pursuit 
 
-This package was created based on the algorithm proposed in the paper 
+This Matlab solver was created based on the algorithm proposed by  
 
 S. Zhou, N. Xiu and H. Qi, Global and Quadratic Convergence of Newton Hard-Thresholding Pursuit, 
 available at https://www.researchgate.net/publication/330224407 or https://arxiv.org/abs/1901.02763, 2018.
