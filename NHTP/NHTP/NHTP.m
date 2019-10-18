@@ -156,7 +156,7 @@ for iter = 1:ItMax
         d      = -pcg(H,g(T),pcgtol,50); 
         end
         dg     =  sum(d.*g(T));
-        if dg  >  max(-delta*FNorm(d), -FNorm(g(T)))
+        if dg  >  max(-delta*FNorm(d), -FNorm(g(T))) || isnan(dg)
         d      = -g(T); 
         end
     else                              % update next iterate if T~=supp(x^k)
@@ -174,7 +174,7 @@ for iter = 1:ItMax
         delta0  = delta;
         if Fnz > 1e-4; delta0 = 1e-4; end
  
-        if dgT > max(-delta0*FNorm(d)+Fnz, -FNorm(g(T)))
+        if dgT > max(-delta0*FNorm(d)+Fnz, -FNorm(g(T))) || isnan(dgT)
         d      = -g(T);  
         end        
     end
