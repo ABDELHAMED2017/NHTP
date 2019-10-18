@@ -174,7 +174,7 @@ for iter = 1:ItMax
         delta0  = delta;
         if Fnz > 1e-4; delta0 = 1e-4; end
  
-        if dgT > max(-delta0*FNorm(d)+Fnz, -FNorm(g(T))) || isnan(dgT)
+        if dgT > max(-delta0*FNorm(d)+Fnz, -FNorm(g(T))) || isnan(dg)
         d      = -g(T);  
         end        
     end
